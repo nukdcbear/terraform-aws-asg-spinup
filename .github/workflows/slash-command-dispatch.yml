@@ -1,0 +1,15 @@
+name: Slash Command Dispatch - CI
+on:
+  issue_comment:
+    types: [created]
+jobs:
+  slashCommandDispatch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Execute Terraform
+        uses: peter-evans/slash-command-dispatch@v1
+        with:
+          token: ${{ secrets.REPO_ACCESS_TOKEN }}
+          commands: terraform-apply, terraform-destroy
+          repository: nukdcbear/slash-command-processor
+          named-args: true
