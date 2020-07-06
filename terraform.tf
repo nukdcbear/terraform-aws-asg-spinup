@@ -16,7 +16,7 @@ provider "aws" {
 }
 
 provider "venafi" {
-  version = "~> 0.9"
+  version = "= 0.9.2"
 }
 
 provider "local" {
